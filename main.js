@@ -13,19 +13,19 @@ function draw() {
   ctx.fillStyle = "#87ceeb";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-  // Draw rows of blocks (like ground)
+  // Draw rows of blocks
   for (let y = 0; y < rows; y++) {
     for (let x = 0; x < cols; x++) {
       let blockY = canvas.height - (y + 1) * blockSize;
-      
-      // Alternate color every other row for block definition
-      if (y % 2 === 0) {
-        ctx.fillStyle = "#8B4513"; // dark brown
-      } else {
-        ctx.fillStyle = "#A0522D"; // lighter brown
-      }
 
-      ctx.fillRect(x * blockSize, blockY, blockSize - 1, blockSize - 1); // little gaps for block outlines
+      // Block fill color
+      ctx.fillStyle = "#A0522D";
+      ctx.fillRect(x * blockSize, blockY, blockSize, blockSize);
+
+      // Block border
+      ctx.strokeStyle = "#000000";
+      ctx.lineWidth = 1;
+      ctx.strokeRect(x * blockSize, blockY, blockSize, blockSize);
     }
   }
 
